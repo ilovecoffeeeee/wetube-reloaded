@@ -48,11 +48,16 @@ export const getUpload = (req, res) => {
 }
 
 export const postUpload = async (req, res) => {
+    console.log(req.session);
+    const { user : { _id }, } = req.session;
+    const { path: fileUrl } = req.file;
     const { title, description, hashtags } = req.body;
     try {
         await Video.create({
             title,
             description,
+            fileUrl,
+            owner: _id,
             hashtags: Video.formatHashtags(hashtags),
         });
         return res.redirect("/");
@@ -62,7 +67,6 @@ export const postUpload = async (req, res) => {
             errorMessage: error._message
         });
     }
-    
 };
 
 export const deleteVideo = async (req,res) => {
