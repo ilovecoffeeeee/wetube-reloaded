@@ -7,8 +7,8 @@
     "url": "git+https://github.com/ilovecoffeeeee/wetube-reloaded.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js",
-    "assets": "webpack --config webpack.config.js"
+    "dev:server": "nodemon",
+    "dev:assets": "webpack"
   },
   "author": "sun",
   "license": "MIT",
@@ -33,7 +33,12 @@
     "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.7",
     "@babel/preset-env": "^7.14.7",
+    "css-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.3.0",
     "nodemon": "^2.0.11",
+    "sass": "^1.39.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
   }
