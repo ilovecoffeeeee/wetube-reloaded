@@ -163,7 +163,7 @@ export const postEdit = async(req, res) => {
              );
     
     req.session.user = updatedUser;
-    return res.redirect("users/edit");
+    return res.redirect("edit");
 }
 
 export const getChangePassword = (req, res) => {
@@ -193,7 +193,8 @@ export const postChangePassword = async(req, res) => {
     return res.redirect("/users/logout");
 };
 
-export const edit = (req, res) => res.send("Edit User");
+// export const edit = (req, res) => res.send("Edit User");
+
 export const see = async(req, res) => {
     const { id } = req.params;
     const user = await User.findById(id).populate("videos");
