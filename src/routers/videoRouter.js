@@ -25,6 +25,9 @@ videoRouter
     .route("/upload")
     .all(protectordMiddleware)
     .get(getUpload)
-    .post(videoUpload.single("video"), postUpload);
+    .post(videoUpload.fields([
+        {name:"video"},
+        {name:"thumb"},
+    ]), postUpload);
 
 export default videoRouter;
